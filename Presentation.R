@@ -824,9 +824,9 @@ pres_final <- pres_forever %>%
   
    <div style = 'margin:auto;padding-top:20px;text-align:left; z-index:21; position: relative;'>
    <br>
-   <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 1100px;padding: 20px;font-size: 60px;margin:auto;color: black;'>
+   <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 1200px;padding: 20px;font-size: 60px;margin:auto;color: black;'>
     <br>
-    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer/validation</p>
+    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer/validation_rstudio_2021</p>
     <br>
     <div style = 'margin:auto'>
     <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;'  class='fa fa-twitter-square'></i> @ellis_hughes</p>
