@@ -468,9 +468,9 @@ pres_val_test <- pres_val_code %>%
   slide_multipanel(title = tags$div(style = 'width:1000px',"Connecting the Dots"),
                    
   panel(div(markdown_to_html("
-  Test Cases draw the connections
+  Test Cases
   
-  What you wanted to do <i style = 'text-decoration: none; color: white' class='fa fa-angle-double-right'></i> What you did
+  What you wanted to do   <i style = 'text-decoration: none; color: white' class='fa fa-angle-double-right'></i>   What you did
   ")),
    div(
      img(src = 'img/How-to-find-innovation.jpg',style = 'height:400px;margin:auto'),
@@ -703,35 +703,6 @@ pres_val_doc <- pres_val_test_code %>%
     - Excute test code to capture results
   ",style = "font-size: 45px;margin-top: 140px;"),
   
-  panel(tags$div(
-    tags$div(style = "margin:auto;",
-             tags$img(src = "img/rmarkdown_testthat_roxygen2.png", 
-                      style = "height:600px; margin:auto;")
-    ),
-    class = "center_content")),
-  
-  panel(div(
-    HTML("<img src='img/captain_planet.gif' style = 'height:800px;margin:auto' />"),
-    div( style = "bottom:0px;position:absolute",
-         p("'Captain Planet and the Planeteers' Theme Song: Turner Broadcasting System",style = "font-size:20px;color:grey"),
-         p("Source: https://www.syfy.com/sites/syfy/files/styles/1100xauto/public/captain-planet.gif",style = "font-size:20px;color:grey")
-    ),
-    
-    class = "center_content"),style = "margin-top: 50px;"),
-  
-   panel_markdown("
-   <p style='margin-bottom: 10px'>Generate a <span style='color:green'>reproducible</span> report at </p>
-   <p style='margin-bottom: 10px'>the <span style='color:red'>click</span> of a button </p>
-   <p style='margin-bottom: 10px'>and </p>
-   <p style='margin-bottom: 10px'>on <span style='color:orange'>build</span> of the package</p>
-  ",style = "font-size: 45px;margin-top: 140px; font-size:100px"),
-  
-  panel(
-    tags$iframe(src = "img/Validate.pdf?#zoom=140",
-                style = "width: 1200px; height: 100%",
-                frameborder="0", marginwidth="0"),
-    style = "margin-top: 50px; padding-left:200px; padding-right:200px"),
-  
   panel_markdown("
   ```
   -- DESCRIPTION
@@ -751,11 +722,48 @@ pres_val_doc <- pres_val_test_code %>%
       |__Test_Code
         |__test_code_001.R
   ```               
-  ",style = "font-size: 40px;margin:auto;"))
+  ",style = "font-size: 40px;margin:auto;padding-top: 150px"))
+
+
+pres_powers_combined <- pres_val_doc %>% 
+  slide_multipanel(title = tags$div(style = 'width:1000px',"All Together Now"),
+  
+  panel(tags$div(
+    tags$div(style = "margin:auto;",
+             tags$img(src = "img/rmarkdown_testthat_roxygen2.png", 
+                      style = "height:600px; margin:auto; padding-top: 150px")
+    ),
+    class = "center_content")),
+  
+  panel(div(
+    HTML("<img src='img/captain_planet.gif' style = 'height:800px;margin:auto;padding-top:150px' />"),
+    div( style = "bottom:0px;position:absolute",
+         p("'Captain Planet and the Planeteers' Theme Song: Turner Broadcasting System",style = "font-size:20px;color:grey"),
+         p("Source: https://www.syfy.com/sites/syfy/files/styles/1100xauto/public/captain-planet.gif",style = "font-size:20px;color:grey")
+    ),
+    
+    class = "center_content"),style = "margin-top: 50px;"),
+  
+   panel_markdown("
+   <div style='width:fit-content;margin:auto'>
+   <p style='margin-bottom: 10px'>Generate a <span style='color:green'>reproducible</span> </p>
+   <p style='margin-bottom: 10px'>Validation Report at </p>
+   <p style='margin-bottom: 10px'>the <span style='color:red'>click</span> of a button </p>
+   <p style='margin-bottom: 10px'>and </p>
+   <p style='margin-bottom: 10px'>on <span style='color:orange'>build</span> of the package</p>
+   </div>
+  ",style = "font-size: 45px;margin-top: 120px; font-size:100px; width:1600px;"),
+  
+  panel(
+    tags$iframe(src = "img/Validate.pdf?#zoom=140",
+                style = "width: 1200px; height: 100%",
+                frameborder="0", marginwidth="0"),
+    style = "margin-top: 50px; padding-left:200px; padding-right:200px")
+  )
   
 
 ### Ongoing work ----
-pres_ongoing <- pres_val_doc %>% 
+pres_ongoing <- pres_powers_combined %>% 
   slide_multipanel(title = tags$div(style = 'width:1000px',"Where Are We Now?"),
                    
   panel(style = "width:0px;padding:0px;"),
