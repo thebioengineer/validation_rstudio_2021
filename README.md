@@ -1,5 +1,5 @@
 
-# R/Pharma 2020: R Package Validation Framework
+# RStudio Global Pharma Session 2021: R Package Validation Framework
 
 Author: Ellis Hughes
 
@@ -8,10 +8,10 @@ twitter: @ellis_hughes
 <!-- badges: start -->
 <!-- badges: end -->
 
-This is the repository for the 2020 R/Pharma presentation R Package Validation Framework`.
+This is the repository for the 2021 RStudio Global Pharma Session presentation R Package Validation Framework`.
 
 
-[Slides](https://thebioengineer.github.io/validation_rpharma)
+[Slides](https://thebioengineer.github.io/validation_rstudio_2021)
 
 
 The focus of this presentation is to present an approach to simplify the process of validation of R packages. 
@@ -39,4 +39,5 @@ I would like to thank my team at Fred Hutch for helping develop this idea and th
   - Paul Stutzman
   - Kate Ostbye
 
+As well as the PHUSE R Package Validation Framework Working Group.
 

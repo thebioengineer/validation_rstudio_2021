@@ -29,8 +29,10 @@ pres <- sidescroller(
 ## Title ----
 pres_title <- pres %>% 
   title_slide(
-    title = tags$div(style = "font-weight:200","R Package Validation Framework"),
-    subtitle = list("Ellis Hughes",
+    title = tags$div(style = "font-weight:200;font-size:100px","R Package Validation Framework"),
+    subtitle = list(
+      
+                 HTML("<p class='subtitle_text' style = 'font-size: 70px;margin-bottom: -50px;'>Ellis Hughes</p>"),
                  HTML(paste0(
                    "<p class='subtitle_text'>",
                    "<i href = 'https://twitter.com/ellis_hughes' style = 'text-decoration: none; color: white' class='fa fa-twitter'></i> @ellis_hughes",
@@ -43,7 +45,7 @@ pres_title <- pres %>%
     style = "font-family: 'Darker Grotesque',Arial;
     font-size: 40px;
     font-weight: 300;
-    background-image: url(img/title_background.jpeg);
+    background-image: url(img/title_background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;"
@@ -51,7 +53,7 @@ pres_title <- pres %>%
 
 # ## Bio ----
 pres_bio <- pres_title %>%
-  slide_markdown(title = tags$div(style = 'width:500px',"Ellis Hughes"),"
+  slide_markdown(title = tags$div(style = 'width:1000px',"Ellis Hughes"),"
       <div style = 'height:100%'>
         <div style = 'display:inline-block; vertical-align: top; padding-right:20px; font-size: 45px;margin-left: 50px;'>
         - <span style='font-weight: bold;'>Statistical Programmer</span>
@@ -60,6 +62,7 @@ pres_bio <- pres_title %>%
         <br>
         - <span style='font-weight: bold;'>Community</span>
           - Seattle UseR Organizer
+          - Cascadia R Conf
           - TidyX Screencast
           
         <ul>
@@ -86,9 +89,15 @@ pres_val_explained <- pres_bio %>%
   
   slide_multipanel(title = NULL,
                    
-  panel(tags$div(tags$div(style = "font-weight:200;margin:auto;font-size: 80px",
-      p("What is Computer System Validation?")),
+  panel(tags$div(tags$div(style = "font-weight:200;margin:auto;font-size: 100px; text-position:center",
+      p("Is it", style = "margin-bottom:0px"),
+      HTML("<p style = 'font-size: 125px; margin-bottom:0px'><span style = 'color:#25FF3C;'>Validated</span>?</p>")),
       class = "center_content"), style = "width:1500px"),
+  
+  panel(tags$div(tags$div(style = "font-weight:200;margin:auto;text-position:center",
+      p("What is", style = "margin-bottom:0px"),
+      HTML("<p style = 'font-size: 125px; margin-bottom:0px'><span style = 'color:#25FF3C;'>Validation</span>?</p>")),
+      class = "center_content"), style = "width:1500px;font-size: 100px;"),
   
   panel(tags$div( tags$div(markdown_to_html("
   Establishing documentary evidence that your software performs a
@@ -98,16 +107,13 @@ pres_val_explained <- pres_bio %>%
     - Activity
   
   in compliance with specifications with a high degree of assurance.
-  ")),class = "center_content"), style = "margin-top: 100px"),
+  ")),class = "center_content"), style = "margin-top: 100px;"),
   
   panel(tags$div(tags$div(markdown_to_html("
-  Typical Answer
+  Why do we care about Validation?
   
   - Required for FDA submission
   
-  - <span style = 'color:orange'>21 CFR 11</span>
-  
-  - General Principles of Software Validation (FDA 2002)
   "), style = "margin-top:50px"),class = "center_content"),
   style = "width: 1000px; margin-top: 100px;" ),  
         
@@ -125,7 +131,7 @@ pres_val_explained <- pres_bio %>%
 
 pres_pain <- pres_val_explained %>% 
   slide_multipanel(
-    title = tags$div(style = 'width:500px',"Validation in Practice"),
+    title = tags$div(style = 'width:1000px',"Validation in Practice"),
   
   panel(
     div(class = "center_content",
@@ -150,7 +156,7 @@ pres_pain <- pres_val_explained %>%
   style = "margin-top: 200px; font-size: 45px; margin-left: -600px;"),
   
   panel(div(div(markdown_to_html("
-  Get another form to document test cases, testing environment, ..."), 
+  Get another form to document test cases, testing environment"), 
   style = "width: 1300px; line-height: 75%;"),
   style = "position:fixed;"),
   style = "margin-top: 300px; font-size: 45px; margin-left: -600px;"),
@@ -168,7 +174,7 @@ pres_pain <- pres_val_explained %>%
   style = "margin-top: 500px; font-size: 45px; margin-left: -600px;"),
   
   panel(div(div(markdown_to_html("
-  Review documentation, combine into final report and signoffs for release"),
+  Review documentation, combine into final validation packet for release"),
   style = "width: 1300px; line-height: 75%;"),
   style = "position:fixed;"),
   style = "margin-top: 600px; font-size: 45px; margin-left: -600px;"),
@@ -197,7 +203,7 @@ pres_friends <- pres_pain %>%
   
   panel(tags$div(
     tags$div(style = "margin: auto;display: inline-flex; font-family: monospace;;margin-top: 200px",
-             p("+", style = "font-size: 300px;margin-bottom:70px"),
+             p("+", style = "font-size: 300px;margin-bottom:70px;margin-top:-30px"),
              tags$img(src = "img/Rlogo.png",style = "height:300px;"), 
     ),
     class = "center_content")),
@@ -218,6 +224,13 @@ pres_friends <- pres_pain %>%
              ),
     class = "center_content")),
   
+  panel(tags$div(
+    tags$div(style = "margin:auto;",
+             tags$img(src = "img/push-button-get-validation.PNG", 
+                      style = "height:600px; margin:auto;")
+    ),
+    class = "center_content")),
+  
   panel(tags$iframe(src = "img/Validate.pdf?#zoom=140", style = "width: 1200px; height: 100%", frameborder="0", marginwidth="0"))
   
   )
@@ -229,7 +242,7 @@ pres_val_elements <- pres_friends %>%
   panel_markdown("
   
   <div style='font-size: 45px;margin-left: 20px;'>
-  Steps to Validation
+  Key Elements
   
     - 1. Record Specifications
     
@@ -237,7 +250,7 @@ pres_val_elements <- pres_friends %>%
     
     - 3. Record Test Cases
     
-    - 4. Write Test Case Code
+    - 4. Write Test Code
     
     - 5. Generate Documentation
   
@@ -249,11 +262,9 @@ pres_val_elements <- pres_friends %>%
     
     - Native to programmers
     
-    - Satisfies requirements
-    
     - Iterative development
     
-    - Reusable
+    - Reusable and Extensible
     
   ", style='font-size: 45px;margin-top:140px; '))
 
@@ -262,15 +273,37 @@ pres_val_elements <- pres_friends %>%
 
 ## Specifications ----
 pres_val_specification <- pres_val_elements %>% 
-  slide_multipanel(title = tags$div(style = 'width:700px',"Recording Specifications"),
+  slide_multipanel(title = tags$div(style = 'width:700px',"Start at the Beginning"),
+                   
   panel_markdown("
-  - What is the thing?
-  - What will the thing do?
-  - What are the expected ouputs?
-  - What are the high level steps that need to be followed?
-
-  ", style = "font-size: 45px; margin-top: 140px;"),
+  Specifications
   
+  - Define the expectations of the package
+  
+  <img src='img/blueprint_plans.jpg' style='width: 500px; margin: auto'/>
+  <div style = 'bottom:0px;position:absolute'>
+  <p style = 'font-size:20px;color:grey;margin-bottom:0px'>Adrian Michael, CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, </p>
+  <p style='font-size:20px;color:grey'>via Wikimedia Commons https://commons.wikimedia.org/wiki/File:Waldhaus_Gasterntal_Plan5.JPG.</p>
+  </div>
+
+  ", style = "font-size: 45px; margin-top: 140px;font-size: 50px"),
+  
+  panel_markdown("
+  
+  A well written specification:
+  
+    - What will the thing do?
+    
+    - What are the inputs? 
+
+    - What are the expected ouputs? 
+    
+    - When should warnings/errors be triggered?
+    
+    - Do not rely on external knowledge
+    
+  ", style = "font-size: 45px; margin-top: 140px;"),
+
   panel_markdown("
   
   ```
@@ -286,11 +319,7 @@ pres_val_specification <- pres_val_elements %>%
   
   Specification Files
   
-    - markdown format
-    
-    - Single file per specification
-    
-    - Clearly defined
+    - Machine-readable
     
     - Independent
     
@@ -301,15 +330,18 @@ pres_val_specification <- pres_val_elements %>%
   
   panel_markdown("
   
-  Key Information to capture
+  Documenting Specifications
     
     - _Who_ wrote the specifications
-    - _When_ they wrote it
-
+    - _When_ it was written
+    
   ", style='font-size: 45px;margin-top:140px; '),
   
   panel(
   div(div(markdown_to_html("
+  
+  Example of an specification file written in markdown
+  
   ```{r eval=FALSE, echo = TRUE}
   
   #' @title Specifications For Presentation Success
@@ -335,9 +367,13 @@ pres_val_specification <- pres_val_elements %>%
 ## Coding ----
 pres_val_code <- pres_val_specification %>% 
   
-  slide_multipanel(title = tags$div(style = 'width:500px',"Code"),
+  slide_multipanel(title = tags$div(style = 'width:1000px',"Lets Get Down to Business"),
                    
-  panel(style = "width:0px"),
+ panel(tags$div(tags$div(
+    markdown_to_html("
+    It's code development time!
+    "),style= "margin:auto"),
+    class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
   
   panel(tags$div(tags$div(
     tags$img(src = "img/I_dont_need_help.gif", style = "height:800px"),
@@ -348,21 +384,12 @@ pres_val_code <- pres_val_specification %>%
     style = "margin:auto;"), 
     class = "center_content"), style = "margin-top: 50px;"),
   
-  # panel(tags$div(tags$div(
-  #   markdown_to_html("
-  # Dont worry, I won't be telling you how to code            
-  # "),style= "margin:auto"),class = "center_content"), style = "margin-top: 100px; font-size: 50px;"),
-  
-  
   panel_markdown("
   Documenting Code
   
     - Who wrote the code
     - When they wrote it
-    
     - Update ownership when code are updated
-
-    
   ", style = "font-size: 45px;margin-top:140px"),
   
   panel_markdown("
@@ -395,7 +422,7 @@ pres_val_code <- pres_val_specification %>%
   #'      
   #' @section Last Updated By:
   #' Ellis Hughes
-  #' @section Last Updated Date:
+  #' @section Last Update Date:
   #' 2030/01/01
   
   joke <- function(Setup, Punchline){
@@ -438,41 +465,46 @@ pres_val_code <- pres_val_specification %>%
 
 ## Test Cases ----
 pres_val_test <- pres_val_code %>% 
-  slide_multipanel(title = tags$div(style = 'width:500px',"Test Cases"),
+  slide_multipanel(title = tags$div(style = 'width:1000px',"Connecting the Dots"),
                    
   panel(div(markdown_to_html("
-  Draw connections between specifications and functions
+  Test Cases draw the connections
+  
+  What you wanted to do <i style = 'text-decoration: none; color: white' class='fa fa-angle-double-right'></i> What you did
   ")),
    div(
      img(src = 'img/How-to-find-innovation.jpg',style = 'height:400px;margin:auto'),
        div( style = "bottom:0px;position:absolute",
             p("Source: https://nc3t.com/wp-content/uploads/2014/10/How-to-find-innovation.jpg",style = "font-size:20px;color:grey")
        )),
-   style = "margin-top: 150px;font-size: 50px"),
+   style = "margin-top: 150px;font-size: 50px;margin-left:20px"),
   
   panel(div(div(markdown_to_html("
   
   A single test case can satisfy <span style='color:purple'>multiple</span> specifications
   
   <span style='color:red'>Every</span> specification must be satisfied by least one test case
+  
+  The <span style='color:orange'>risk</span> of a specification drives the level of testing performed
                  
   "),style = "margin:auto"),class = "center_content"),style = "font-size: 50px;"),
   
   panel_markdown("
   Good Test Cases
   
-    - Goals of the test case
-    - Specify the required data
-    - Recipe to get to output
-    - Clear Expectations
+    - Which specifications are being met and how
+    - Detail the required setup
+    - Are a recipe to get to desired output
+    - Clear expectations of what to test against
+    - <span style='color:red'>No code is provided</span>
 
   ",style = "font-size: 45px;margin-top:140px;"),
   
   panel_markdown("
   Documenting Test Cases
   
-    - Who wrote the Test
-    - When they wrote it
+    - _Who_ wrote the Test
+    - _When_ they wrote it
     - _Which_ specifications are satisfied
     
   ",style = "font-size: 45px;margin-top:140px;"),
@@ -513,21 +545,25 @@ pres_val_test <- pres_val_code %>%
 ## Test Code ----
 
 pres_val_test_code <- pres_val_test %>% 
-  slide_multipanel(title = tags$div(style = 'width:500px',"Test Coding"),
+  slide_multipanel(title = tags$div(style = 'width:1000px',"Filling In the Lines"),
   panel_markdown("
-  - Implement Test Cases
   
-  - Record results
+  Test Coding
   
-  - Third Party 
+    - Implement Test Cases
+  
+    - Record results
+  
+    - Third Party 
   
   ", style = "margin-top:140px; font-size: 45px;"),
   panel_markdown("
   Benefits
     
     - Resolves interpretation errors
-      - documentation
-      - test cases
+      - Documentation and examples
+      - Test cases
+      - Specifications
     
     - Identify improvements
                  
@@ -586,9 +622,8 @@ pres_val_test_code <- pres_val_test %>%
   {testthat}
   
     - Familar framework
-    - Can run and developed interactively
-    - Automation
-    
+    - Can be run and developed interactively or in batch
+
   ",style = "font-size: 45px;margin-top: 140px;"),
   
   panel_markdown("
@@ -597,10 +632,10 @@ pres_val_test_code <- pres_val_test %>%
     - Track each test and expectation
     - Reports success
     - Records failure mode
-
   ",style = "font-size: 45px;margin-top: 140px;"),
   
   panel_markdown("
+  Standard Reporter Object output<br><br>
   
   ```{r, eval = FALSE}
   |  OK F W S | Context
@@ -614,11 +649,11 @@ pres_val_test_code <- pres_val_test %>%
   Warnings: 0
   Skipped:  0
   ```           
-  ",style = "font-size: 50px; margin-top:140px;"),
+  ",style = "font-size: 45px; margin-top:140px;"),
   
   panel_markdown("
   
-  Using a custom function to extract results from Reporter object<br><br>
+  Using a custom function to extract results from Reporter Object<br><br>
 
   <img src='img/test_table_example.PNG' style='width: 700px; margin: auto'/>
   
@@ -627,7 +662,7 @@ pres_val_test_code <- pres_val_test %>%
 ## Documentation ----
 
 pres_val_doc <- pres_val_test_code %>% 
-  slide_multipanel(title = tags$div(style = 'width:500px',"Final Document"),
+  slide_multipanel(title = tags$div(style = 'width:1000px',"Proof is in the Pudding"),
                    
   panel_markdown("
   
@@ -636,46 +671,44 @@ pres_val_doc <- pres_val_test_code %>%
   - 1. <i style = 'text-decoration: none; color: green' class='fa fa-check-square'></i> Specifications
   - 2. <i style = 'text-decoration: none; color: green' class='fa fa-check-square'></i> Code
   - 3. <i style = 'text-decoration: none; color: green' class='fa fa-check-square'></i> Test Cases
-  - 4. <i style = 'text-decoration: none; color: green' class='fa fa-check-square'></i> Test Case Code
+  - 4. <i style = 'text-decoration: none; color: green' class='fa fa-check-square'></i> Test Code
   - 5. <i style = 'text-decoration: none; color: #272727' class='fa fa-check-square'></i> Validation Documentation
   
   ",style = "font-size: 45px;margin-top: 140px;"),
   
   panel_markdown("
+  Validation Documentation
   
-  Final Elements Required
+    - Written using Rmarkdown
+
+    - Sign off/Approvals Section
   
-  - Sign off page
-  
-  - Environment information
-    - R version
-    - Package dependencies and versions
-    
+    - Environment Information
+      - R version
+      - Package dependencies and versions
+      
+    - Any other organizational requirements
   ",style = "font-size: 45px;margin-top: 140px;"),
   
   panel_markdown("
-       
-  ## Rmarkdown
   
-  - Lives in the vignettes folder
-  - Native prose with code
-  - Flexible outputs
-  
-  Generate report on the click of a button
+  Using Rmarkdown to dynamically
 
-    
+    - Read in specifications
+      
+    - Scrape Code authorship
+      
+    - Read in Test cases
+      
+    - Excute test code to capture results
   ",style = "font-size: 45px;margin-top: 140px;"),
-
   
-  panel_markdown("
-  ## Roxygen2
-    - Generate list of ownership of all documentation
-    - Generate table of specification coverage
-    
-  ## {testthat}
-    - Record results of test code
-    
-  ",style = "font-size: 45px;margin-top: 140px;"),
+  panel(tags$div(
+    tags$div(style = "margin:auto;",
+             tags$img(src = "img/rmarkdown_testthat_roxygen2.png", 
+                      style = "height:600px; margin:auto;")
+    ),
+    class = "center_content")),
   
   panel(div(
     HTML("<img src='img/captain_planet.gif' style = 'height:800px;margin:auto' />"),
@@ -685,6 +718,13 @@ pres_val_doc <- pres_val_test_code %>%
     ),
     
     class = "center_content"),style = "margin-top: 50px;"),
+  
+   panel_markdown("
+   <p style='margin-bottom: 10px'>Generate a <span style='color:green'>reproducible</span> report at </p>
+   <p style='margin-bottom: 10px'>the <span style='color:red'>click</span> of a button </p>
+   <p style='margin-bottom: 10px'>and </p>
+   <p style='margin-bottom: 10px'>on <span style='color:orange'>build</span> of the package</p>
+  ",style = "font-size: 45px;margin-top: 140px; font-size:100px"),
   
   panel(
     tags$iframe(src = "img/Validate.pdf?#zoom=140",
@@ -713,19 +753,48 @@ pres_val_doc <- pres_val_test_code %>%
   ```               
   ",style = "font-size: 40px;margin:auto;"))
   
-pres_val_doc2 <- pres_val_doc %>% 
-  slide_wide(title = NULL,
-    tags$div(
-    tags$img(src = "img/val_and_R_forever2.png", 
-             style = "height:100%; margin:auto;"), 
-    class = "center_content", style = "height: 110%"))
+
+### Ongoing work ----
+pres_ongoing <- pres_val_doc %>% 
+  slide_multipanel(title = tags$div(style = 'width:1000px',"Where Are We Now?"),
+                   
+  panel(style = "width:0px;padding:0px;"),
+                   
+  panel_markdown("
+  
+  White Paper
+  
+    - Describing the framework process in detail
+    
+    - Generalizing and recording optimal process
+
+  <img src='img/construction_ahead.png' style='width: 400px; margin: auto'/>
+  
+  ",style = "font-size: 45px;margin-top: 140px;"),
+  
+  panel_markdown("
+  
+  {valtools} R Package
+  
+    - In progress
+  
+    - Based on white paper
+    
+    - Provide tooling not available though {usethis} or {devtools}
+    <div style='margin-top:50px'>
+    <div style='margin:auto;width:fit-content;'>
+    <i style ='font-size: 100px;color: white;margin:auto' class='fa fa-cog fa-spin'></i>
+    </div>
+    </div>
+  ",style = "font-size: 45px;margin-top: 140px;"))
+
 
 
 ## Conclusion ----
-pres_conclusion <- pres_val_doc2 %>% 
+pres_conclusion <- pres_ongoing %>% 
   slide_multipanel(title = NULL,
   panel_markdown("
-  ### Many thanks to all involved
+  ### Many thanks to all involved at Fred Hutch
   
   - Marie Vendettuoli
   - Anthony Williams
@@ -737,22 +806,27 @@ pres_conclusion <- pres_val_doc2 %>%
   - Paul Stutzman
   - Kate Ostbye
   
-  - Many many more people
+  As well as the PHUSE R Package Validation Framework Working Group
   ", style = "font-size: 40px;"))
 
 
 ## Final ----
+
+pres_forever <- pres_conclusion %>% 
+  slide_wide(title = NULL,
+             tags$div(
+               tags$img(src = "img/val_and_R_forever2.png", 
+                        style = "height:100%; margin:auto;"), 
+               class = "center_content", style = "height: 110%"))   
                    
-                   
-pres_final <- pres_conclusion %>%  
+pres_final <- pres_forever %>%  
   slide_markdown( title = tags$div(style = 'width:1600px; font-size: 120px',"Thank You"),"
   
    <div style = 'margin:auto;padding-top:20px;text-align:left; z-index:21; position: relative;'>
    <br>
    <div style = 'background-color: #ffffff;opacity: .5;border-radius: 10px;width: 1100px;padding: 20px;font-size: 60px;margin:auto;color: black;'>
-    <p style = 'margin-bottom: 0; font-size: 70px;'>Presentation available at: <br><a href = 'https://thebioengineer.github.io/validation_rpharma' style='text-decoration: none;'>   thebioengineer.github.io/validation_rpharma</a></p>
     <br>
-    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer/validation_rpharma</p>
+    <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;' class='fa fa-github-square'></i> github.com/thebioengineer/validation</p>
     <br>
     <div style = 'margin:auto'>
     <p style = 'margin-bottom: 0;'><i style = 'text-decoration: none;'  class='fa fa-twitter-square'></i> @ellis_hughes</p>
